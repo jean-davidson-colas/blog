@@ -55,7 +55,7 @@ class bdd
         }
         else
         {
-            $connect = mysqli_connect("localhost", "root", "", "camping");
+            $connect = mysqli_connect("localhost", "root", "", "blog");
             $delete="DELETE FROM reservations WHERE id = '".$_POST['resat']."'";
             $query=mysqli_query($connect,$delete);
             unset($_SESSION['login']);
@@ -65,7 +65,7 @@ class bdd
 
     public function update($id)
     {
-        $connect = mysqli_connect("localhost", "root", "", "camping");
+        $connect = mysqli_connect("localhost", "root", "", "blog");
         $update="UPDATE prix SET prix = ".$_POST[$id]." WHERE id = $id";
         $query_update=mysqli_query($connect,$update);
         echo "le prix a bien été modifier.";

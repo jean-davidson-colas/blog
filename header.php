@@ -36,6 +36,8 @@ else
             <li><a href="index.php"> Accueil</a></li>
             <li><a href="inscription.php"> Inscription</a></li>
             <li><a href="connexion.php"> Connexion</a></li> 
+            <li><a href="creer-article.php">CREE ARTICLE</a></li>
+            <li><a href="creer-categories.php">CREE Categorie</a></li>
              
      </ul>
 </nav>
