@@ -25,7 +25,8 @@ if($_SESSION['user']->isConnected() != false){
 <head>
         <title>Inscription</title> 
         <link rel="stylesheet" href="css/style.css">
-        
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -48,14 +49,14 @@ if($_SESSION['user']->isConnected() != false){
             <label>Confirmation du mot de passe</label>
             <input type="password" name="passwordconf" minlength="5" required><br>
            
-            <input type="submit" name="envoyer">
+            <input type="submit" name="send">
         </form>
 
     </section>
 <section>
 <?php
 
-if(isset($_POST['envoyer'])){
+if(isset($_POST['send'])){
     if($_SESSION["user"]->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "ok"){
         ?>
         <p>Le compte a été créé.</p>
