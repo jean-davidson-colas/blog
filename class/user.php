@@ -25,7 +25,7 @@ class user extends bdd
                 if(empty($result)){
                     $mdp = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
                     //INSERT INTO `utilisateurs` (`id`, `login`, `password`, `email`, `id_droits`) VALUES (NULL, '', '', '', '');
-                    $requete ="INSERT INTO `utilisateurs` (`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$mdp', '$mail', '1')";
+                    $requete ="INSERT INTO `utilisateurs` (`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$mdp', '$mail', '42')";
                     //var_dump($requete);
                     $query = mysqli_query($this->connexion,$requete);
                     //var_dump($query);
@@ -56,12 +56,12 @@ class user extends bdd
         {
             if($login == $result["login"])
             {
-                if(password_verify($mdp,$result["mdp"]))
+                if(password_verify($mdp,$result["password"]))
                 {
                     $this->id = $result["id"];
                     $this->login = $result["login"];
-                    $this->mail = $result["mail"];
-                    $this->role = $result["role"];
+                    $this->mail = $result["email"];
+                    $this->role = $result["id_droits"];
                     return [$this->id,$this->login,$this->mail,$this->role];
                 }
                 else{
