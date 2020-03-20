@@ -33,7 +33,7 @@
 
 	<main>
 		<?php
-			/*if (role admin ou modo) 
+			if ($_SESSION['login'] == "admin") 
 			{
 				
 			
@@ -51,8 +51,11 @@
 					
 				</section>
 		<?php
-			/*}*/
-
+			}
+			else
+			{
+				echo "Vous ne pouvez pas cree de categories";
+			}
 
 		?>
 	</main>

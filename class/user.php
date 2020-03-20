@@ -51,6 +51,7 @@ class user extends bdd
         $requete = "SELECT * FROM utilisateurs WHERE login = '$login'";
         $query = mysqli_query($this->connexion,$requete);
         $result = mysqli_fetch_assoc($query);
+        var_dump($result);
 
         if(!empty($result))
         {
@@ -62,20 +63,30 @@ class user extends bdd
                     $this->login = $result["login"];
                     $this->mail = $result["email"];
                     $this->role = $result["id_droits"];
-                    return [$this->id,$this->login,$this->mail,$this->role];
+                    $_SESSION['login'] = $this->login ;
+                    $_SESSION['mail'] = $this->mail ;
+                    $_SESSION['role'] = $this->role ;
+
+                    $infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['role']];
+                    
+                   
                 }
                 else{
+                    
                     return false;
                 }
             }
             else{
+                
                 return false;
             }
         }
         else{
+            
             return false;
         }
     }
+
     public function profil($login = "",$mail= "",$mdp = "",$confmdp="")
     {
         $this->connect();
