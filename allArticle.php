@@ -32,7 +32,7 @@
 
 			for ($i=0; $i < $nbArticle ; $i++) 
 				{ ?>
-					<div> <a href=""><?php echo $resultAllArticle[$i][1];  ?></a></div>
+					<div> <a href="articles.php?id=<?php echo $resultAllArticle[$i][0] ?>"><?php echo $resultAllArticle[$i][1];?></a></div>
 					<?php
 				}
 
