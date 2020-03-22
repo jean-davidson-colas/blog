@@ -1,7 +1,7 @@
 <?php 
 require 'class/bdd.php';
 require 'class/user.php';
-require 'class/reservation.php';
+
 
 
 session_start();
@@ -14,7 +14,7 @@ if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
 if($_SESSION['user']->getrole() != "admin"){
-    header('Location:index.php');
+    //header('Location:index.php');
 }
 
 ?>
@@ -41,34 +41,34 @@ if($_SESSION['user']->getrole() != "admin"){
 
 <?php
 $_SESSION['bdd']->connect();
-$price=$_SESSION['bdd']->execute("SELECT prix,nom FROM prix");
-//var_dump($price);
-$resa=$_SESSION['bdd']->execute("SELECT reservations.debut,reservations.fin,reservations.id,utilisateurs.login  FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id");
-//var_dump($resa);
+$uti=$_SESSION['bdd']->execute("SELECT * FROM utilisateurs");
+//var_dump($uti);
+//$resa=$_SESSION['bdd']->execute("SELECT reservations.debut,reservations.fin,reservations.id,utilisateurs.login  FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id");
+
 $_SESSION['bdd']->close();
 
-foreach($resa as $resat) 
+foreach($uti as $utili) 
 { 
      
 ?>
 <table>
 <thead>
     <tr>
-        <th>Date de debut </th>
-        <th>Date de fin</th>
-        <th>Prix</th>
-        <th>Client</th>
+        <th>id</th>
+        <th>login</th>
+        <th>email</th>
+        <th>id_droits</th>
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td><?php echo $resat[0] ; ?> </td>
-    <td><?php echo $resat[1] ; ?> </td>
-    <td><?php echo $resat[2] ; ?> </td>
-    <td><?php echo $resat[3] ; ?> </td>
+    <td><?php echo $utili[0] ; ?> </td>
+    <td><?php echo $utili[1] ; ?> </td>
+    <td><?php echo $utili[3] ; ?> </td>
+    <td><?php echo $utili[4] ; ?> </td>
     <td>
     <form method="post" action="admin.php" id="suppression">
-    <button type="submit" id="submit" name="resat" value ="<?php echo $resat[2];?>">Supprimer</button></form>
+    <button type="submit" id="submit" name="resat" value ="<?php echo $utili[2];?>">Supprimer</button></form>
     </td>
     </tr>
 </tbody>
@@ -86,29 +86,37 @@ if(isset($_POST['resat']))
 
 }
 $_SESSION['bdd']->connect();
-$price=$_SESSION['bdd']->execute("SELECT prix,nom,id FROM prix");
-foreach($price as $price3) 
+$art=$_SESSION['bdd']->execute("SELECT * FROM articles ORDER BY id_utilisateur");
+var_dump($art);
+
+foreach($art as $art3) 
 { 
      
 ?>
 <table>
 <thead>
     <tr>
-        <th>Type</th>
-        <th>Prix</th>
-        <th></th>
+        <th>id.article</th>
+        <th>id.utilisateur</th>
+        <th>id.categorie</th>
+        <th>article</th>
+        <th>date</th>
+        
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td><?php echo $price3[1] ; ?> </td>
-    <td><?php echo $price3[0] ; ?> </td>
+    <td><?php echo $art3[0] ; ?> </td>
+    <td><?php echo $art3[2] ; ?> </td>
+    <td><?php echo $art3[3] ; ?> </td>
+    <td><?php echo $art3[1] ; ?> </td>
+    <td><?php echo $art3[4] ; ?> </td>
     <td></td>
     <td>
     <form method="post" action="admin.php" id="modifier">
-    <input type="text" name="<?php echo $price3[2] ;?>" value =""></td>
+    <input type="text" name="<?php echo $art3[2] ;?>" value =""></td>
     <td>
-    <input type="submit" id="submit" name="price<?php echo $price3[2];?>" value="Modifier"/>
+    <input type="submit" id="submit" name="price<?php echo $art3[2];?>" value="Modifier"/>
     </form>
     </td>
     </tr>
@@ -117,9 +125,9 @@ foreach($price as $price3)
 <?php
 //Modifier les prix 
 
-if(isset($_POST['price'.$price3[2]]))
+if(isset($_POST['price'.$art3[2]]))
 {
-    $_SESSION['bdd']->update($price3[2]);
+    $_SESSION['bdd']->update($art3[2]);
     header('Location:admin.php');
     
     

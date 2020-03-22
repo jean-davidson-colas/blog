@@ -36,11 +36,9 @@ input[type="submit"]
 {
     cursor:pointer;
     font-family: "Bold";
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	
 	padding-bottom: 4px;
-	margin-top: 40px;
+	margin-top: 30px;
 	box-shadow: 0px 1px 10px grey;
 	background-color: #335BD4;
 	text-decoration: none;
@@ -156,3 +154,34 @@ footer
     text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
 }
 
+
+/*--------------------Creer Article--------------------*/
+/*--------------------Creer Article--------------------*/
+/*--------------------Creer Article--------------------*/
+/*--------------------Creer Article--------------------*/
+/*--------------------Creer Article--------------------*/
+
+#creerArticle{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+   
+}
+
+#creerArticle textarea{
+    resize: none;
+}
+
+
+
+
+/*--------------------Creer Categorie--------------------*/
+/*--------------------Creer Categorie--------------------*/
+/*--------------------Creer Categorie--------------------*/
+/*--------------------Creer Categorie--------------------*/
+/*--------------------Creer Categorie--------------------*/
+
+#newCategorie{
+    text-align: center;
+    background-color: red;
+}

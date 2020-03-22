@@ -14,12 +14,15 @@ if (isset($_SESSION['login']))
     <ul>
         <li><a href="index.php">Accueil</a></li>
         <li><a href="profil.php">Mon compte</a></li>
+        <li><a href="creer-article.php">CREE ARTICLE</a></li>
     
         
         <?php 
-        if(isset($_SESSION['role'])){
+        if($_SESSION['login'] == "admin"){
         ?>
         <li><a href="admin.php">Admin</a>
+            <li><a href="creer-article.php">CREE ARTICLE</a></li>
+        <li><a href="creer-categories.php">CREE Categorie</a></li>
             <?php
         }
         ?>
@@ -36,6 +39,8 @@ else
             <li><a href="index.php"> Accueil</a></li>
             <li><a href="inscription.php"> Inscription</a></li>
             <li><a href="connexion.php"> Connexion</a></li> 
+            
+            
              
      </ul>
 </nav>

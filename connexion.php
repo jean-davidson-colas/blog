@@ -13,9 +13,8 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['user']->isConnected() != false){
-    header('Location:index.php');
-}
+
+
 ?>
 
 
@@ -52,18 +51,18 @@ if($_SESSION['user']->isConnected() != false){
 <section>
 <?php
 if(isset($_POST["send"])){
-    if($_SESSION["user"]->connexion($_POST["login"],$_POST["password"]) == false){
+    if($_SESSION["user"]->connexion($_POST['login'],$_POST['password']) == false){
         ?>
             <p>Un problème est survenue lors de la connexion. Veuillez vérifer vos informations de connexion.</p>
         <?php
     }
     else{
         $_SESSION["user"]->connexion($_POST["login"],$_POST["password"]);
-        $_SESSION["login"] = false;
+
         if($_SESSION['user']->getrole() == "admin"){
             $_SESSION["role"] = true;
         }
-        header('location:index.php');
+        header("location:index.php");
     }
     
 }

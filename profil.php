@@ -1,7 +1,7 @@
 <?php 
 require 'class/bdd.php';
 require 'class/user.php';
-require 'class/reservation.php';
+
 
 
 
@@ -31,6 +31,10 @@ if($_SESSION['user']->isConnected() != true){
 
 
 <main>
+
+<?php
+echo "<h1>Bonjour $login !!</h1>";
+?>
 <section>
     <h1> Mon compte </h1>
             <form action="profil.php" class="formulaire" method="post">
