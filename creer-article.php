@@ -32,14 +32,14 @@
     	$queryCat = mysqli_query($connexion, $requeteCat);
     	$resultCat = mysqli_fetch_assoc($queryCat);
 
-    	//var_dump($resultCat);
+    	
 
 
     	$requeteNewArticle = "INSERT INTO articles (article, id_utilisateur, id_categorie, date)VALUES ('$newArticle', '".$resultInfoUser['id']."', '".$resultCat['id']."', '$date')";
     	$queryNewArticle = mysqli_query($connexion, $requeteNewArticle);
     	
 
-    	//echo $requeteNewArticle;
+    	
     	
     }
 

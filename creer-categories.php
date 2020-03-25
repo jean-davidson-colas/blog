@@ -33,16 +33,16 @@
 
 	<main>
 		<?php
-			if ($_SESSION['login'] == "admin") 
+			if ($_SESSION['id_droits'] = 1337) 
 			{
 				
 			
-		*/
+		
 		?>
 				
 				<section id="newCategorie">
 
-					<form method="post">
+					<form action="creer-categories.php" method="post" id="formCategorie">
 						<label>Nom Categorie :</label>
 						<input type="text" name="newcategorie">
 						<br/>
