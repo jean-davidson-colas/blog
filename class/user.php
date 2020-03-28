@@ -25,7 +25,7 @@ class user extends bdd
                 if(empty($result)){
                     $mdp = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
                     //INSERT INTO `utilisateurs` (`id`, `login`, `password`, `email`, `id_droits`) VALUES (NULL, '', '', '', '');
-                    $requete ="INSERT INTO `utilisateurs` (`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$mdp', '$mail', '42')";
+                    $requete ="INSERT INTO `utilisateurs` (`login`, `password`, `email`, `id_droits`,`avatar`) VALUES ('$login', '$mdp', '$mail', '1',NULL)";
                     //var_dump($requete);
                     $query = mysqli_query($this->connexion,$requete);
                     //var_dump($query);
@@ -62,12 +62,12 @@ class user extends bdd
                     $this->id = $result["id"];
                     $this->login = $result["login"];
                     $this->mail = $result["email"];
-                    $this->role = $result["id_droits"];
+                    $this->id_droits = $result["id_droits"];
                     $_SESSION['login'] = $this->login ;
                     $_SESSION['mail'] = $this->mail ;
-                    $_SESSION['role'] = $this->role ;
+                    $_SESSION['id_droits'] = $this->id_droits ;
 
-                    $infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['role']];
+                    $infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['id_droits']];
                     
                    
                 }

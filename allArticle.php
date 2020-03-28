@@ -26,14 +26,22 @@
 	
 </head>
 
-<body>
+	<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
+<body id="bodyAllArticle">
 
 	<?php require 'header.php';?>
 
 	<main>
 		<?php
 
+		if (isset($_SESSION['login'])) 
+		{
 			
+
 			$articleParPage=5;
 			$nombreDePages=ceil($nbArticle/$articleParPage);
 
@@ -71,7 +79,7 @@
 				<?php
 				}
 				?>
-			</section>
+			
 
 			<?php
  			
@@ -89,7 +97,16 @@
      				echo ' <a href="allArticle.php?page='.$i.'">'.$i.'</a> ';
      			}
  			}
- 			echo '</p>';
+ 			echo '</p>';?>
+			</section>
+			
+		<?php
+		}
+		else
+		{
+			echo "Vous devez etre connecter pour pouvoir voir les articles affichés.";
+		}
+
 		?>
 		
 	</main>

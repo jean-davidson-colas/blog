@@ -32,75 +32,95 @@ if (isset($_GET['id']))
 	
 </head>
 
-<body>
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
+
+<body id="bodyArticle">
 
 	<?php require 'header.php';?>
 
-	<main>
-		<div>
-			<?php
-			echo $resultArticle[0][1];
-			?>
-		</div>
+	<main id="mainArticle">
+		<?php
 
-		<div>
-			<?php
+		if (isset($_SESSION['login'])) 
+		{?>
+			
+			<div id="infoArticle">
+				Titre :
+				<?php
+				echo $resultArticle[0][1];
+				?>
+				Créer par :
+			</div>
 
-			$requeteCommentaire = "SELECT * FROM commentaires WHERE id_article='".$_GET['id']."'";
-			$queryCommentaire = mysqli_query($connexion, $requeteCommentaire);
-			$resultCommentaire = mysqli_fetch_all($queryCommentaire);
+			<div>
+				<?php
 
-			$nbCommentaire = count($resultCommentaire);
+				$requeteCommentaire = "SELECT * FROM commentaires WHERE id_article='".$_GET['id']."'";
+				$queryCommentaire = mysqli_query($connexion, $requeteCommentaire);
+				$resultCommentaire = mysqli_fetch_all($queryCommentaire);
 
-			echo $requeteCommentaire;
-			var_dump($resultCommentaire);
+				$nbCommentaire = count($resultCommentaire);
 
-			if (empty($resultCommentaire)) 
-			{
-				echo "PAS DE COMMENTAIRE";
-			}
-			else
-			{
-				for ($i=0; $i < $nbCommentaire ; $i++) 
-				{ 
-					
-					echo $resultCommentaire[$i][1];
-					echo "<br />";
+				echo $requeteCommentaire;
+				var_dump($resultCommentaire);
+
+				if (empty($resultCommentaire)) 
+				{
+					echo "PAS DE COMMENTAIRE";
+				}
+				else
+				{
+					for ($i=0; $i < $nbCommentaire ; $i++) 
+					{ 
+
+						echo $resultCommentaire[$i][1];
+						echo "<br />";
+
+					}
 
 				}
 
-			}
-			
 
-			?>
-		</div>
+				?>
+			</div>
 
-		<div>
-			<form action="articles.php?id=<?php echo $resultArticle[0][0]?>" method="post">
+			<div>
+				<form action="articles.php?id=<?php echo $resultArticle[0][0]?>" method="post">
 
-				<textarea name="commentaire" placeholder="Votre Message"></textarea>
-				<br />
-				<input id="button1" type="submit" name="envoyer" value="Envoyer">
-				
-			</form>
+					<textarea name="commentaire" placeholder="Votre Message"></textarea>
+					<br />
+					<input id="button1" type="submit" name="envoyer" value="Envoyer">
 
-			<?php
+				</form>
 
-			if (isset($_POST['envoyer'])) 
-			{
-				$date = date("Y-m-d H:i:s");
+				<?php
 
-				$requeteNewMessage = "INSERT INTO commentaires (commentaire, id_article, id_utilisateur, date) VALUES ('".$_POST['commentaire']."', '".$_GET['id']."', '".$resultUser[0][0]."', '".$date."')";
+				if (isset($_POST['envoyer'])) 
+				{
+					$date = date("Y-m-d H:i:s");
 
-				$queryNewMessage = mysqli_query($connexion, $requeteNewMessage) ;
-				header('Location:articles.php?id='.$_GET['id'].'');
-				
-				echo $requeteNewMessage;
-				var_dump($resultUser);
-				
-			}
-			?>
-		</div>
+					$requeteNewMessage = "INSERT INTO commentaires (commentaire, id_article, id_utilisateur, date) VALUES ('".$_POST['commentaire']."', '".$_GET['id']."', '".$resultUser[0][0]."', '".$date."')";
+
+					$queryNewMessage = mysqli_query($connexion, $requeteNewMessage) ;
+					header('Location:articles.php?id='.$_GET['id'].'');
+
+					echo $requeteNewMessage;
+					var_dump($resultUser);
+
+				}
+				?>
+			</div>
+		<?php
+		}
+		else
+		{
+			echo "Vous devez etre connecter pour avoir accés a cette partit du blog";
+		}
+		?>
 	</main>
 
 

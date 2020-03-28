@@ -155,6 +155,28 @@ footer
 }
 
 
+/*--------------------INDEX--------------------*/
+/*--------------------INDEX--------------------*/
+/*--------------------INDEX--------------------*/
+/*--------------------INDEX--------------------*/
+/*--------------------INDEX--------------------*/
+
+.banniere{
+    text-align: center;
+    background-image: url(../img/banniere.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    padding-top: 5%;
+}
+
+.logo{
+    width: 20%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255, 0.5);
+   
+}
+
 /*--------------------Creer Article--------------------*/
 /*--------------------Creer Article--------------------*/
 /*--------------------Creer Article--------------------*/
@@ -207,9 +229,17 @@ footer
 /*--------------------allArticle--------------------*/
 /*--------------------allArticle--------------------*/
 
+#bodyAllArticle{
+    background-image: url(../img/backgroundAllArticle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #allArticle{
     margin: 0 auto;
     width: 50%;
+    padding: 2%;
+    background-color: white;
     
 }
 
@@ -219,4 +249,19 @@ footer
     border-width: 4px;
     margin: 2%;
     padding: 2%;
+}
+
+/*--------------------ARTICLE--------------------*/
+/*--------------------ARTICLE--------------------*/
+/*--------------------ARTICLE--------------------*/
+/*--------------------ARTICLE--------------------*/
+/*--------------------ARTICLE--------------------*/
+
+#mainArticle{
+    width: 50%;
+    margin: 0 auto ;
+}
+
+#infoArticle{
+    text-align: center;
 }
