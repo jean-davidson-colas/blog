@@ -312,3 +312,12 @@ footer
 #delete a{
     color: white ;
 }
+
+#newCommentaire{
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+#newCommentaire textarea{
+    resize: none;
+}
