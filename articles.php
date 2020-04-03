@@ -19,6 +19,14 @@ if (isset($_GET['id']))
 	$resultUser = mysqli_fetch_all($queryUser);
 
 	
+
+    $requeteMessage = "SELECT commentaires.id,commentaire,id_article,id_utilisateur,date,utilisateurs.id,login,password,email,id_droits FROM commentaires INNER JOIN utilisateurs ON utilisateurs.id = commentaires.id_utilisateur WHERE id_article = '".$_GET['id']."'";
+    $queryMessage = mysqli_query($connexion, $requeteMessage);
+    $resultMessage = mysqli_fetch_all($queryMessage);
+
+    
+
+	
 }
 
 
@@ -49,44 +57,73 @@ if (isset($_GET['id']))
 		{?>
 			
 			<div id="infoArticle">
-				Titre :
+				Article :<br/>
 				<?php
 				echo $resultArticle[0][1];
 				?>
-				Créer par :
+				
 			</div>
 
-			<div>
-				<?php
+			<section id="sectionCommentaire">
 
-				$requeteCommentaire = "SELECT * FROM commentaires WHERE id_article='".$_GET['id']."'";
-				$queryCommentaire = mysqli_query($connexion, $requeteCommentaire);
-				$resultCommentaire = mysqli_fetch_all($queryCommentaire);
+				
+				
+					<?php
 
-				$nbCommentaire = count($resultCommentaire);
+					$requeteCommentaire = "SELECT * FROM commentaires WHERE id_article='".$_GET['id']."'";
+					$queryCommentaire = mysqli_query($connexion, $requeteCommentaire);
+					$resultCommentaire = mysqli_fetch_all($queryCommentaire);
 
-				echo $requeteCommentaire;
-				var_dump($resultCommentaire);
+					$nbCommentaire = count($resultCommentaire);
 
-				if (empty($resultCommentaire)) 
-				{
-					echo "PAS DE COMMENTAIRE";
-				}
-				else
-				{
-					for ($i=0; $i < $nbCommentaire ; $i++) 
-					{ 
+					
 
-						echo $resultCommentaire[$i][1];
-						echo "<br />";
+
+					if (empty($resultCommentaire)) 
+					{
+						echo "PAS DE COMMENTAIRE";
+					}
+					else
+					{
+						for ($i=0; $i < $nbCommentaire ; $i++) 
+						{ ?>
+
+							<div id="userCommentaire">
+								Utilisateur :
+								<?php
+								echo $resultMessage[$i][6];
+								?>
+							</div>
+
+							<div id="commentaire">
+								<?php	
+								echo $resultCommentaire[$i][1];
+								echo "<br />";
+								?>
+								<br />
+								<?php
+
+								if ($_SESSION['id_droits'] = 1337) 
+								{?>
+									<div id="delete">
+                                            <a href="delete.php?id_article=<?php echo "".$resultArticle[0][0].""; ?>&&id=<?php echo "".$resultCommentaire[$i][0].""; ?>">Supprimer</a>                                       
+                                    </div>
+								<?php
+								}?>
+								
+                                    
+
+								
+							</div>
+						<?php
+						}
 
 					}
 
-				}
 
-
-				?>
-			</div>
+					?>
+				
+			</section>
 
 			<div>
 				<form action="articles.php?id=<?php echo $resultArticle[0][0]?>" method="post">
@@ -99,7 +136,7 @@ if (isset($_GET['id']))
 
 				<?php
 
-				if (isset($_POST['envoyer'])) 
+				if (isset($_POST['envoyer']) AND !empty($_POST['commentaire'])) 
 				{
 					$date = date("Y-m-d H:i:s");
 
@@ -108,8 +145,7 @@ if (isset($_GET['id']))
 					$queryNewMessage = mysqli_query($connexion, $requeteNewMessage) ;
 					header('Location:articles.php?id='.$_GET['id'].'');
 
-					echo $requeteNewMessage;
-					var_dump($resultUser);
+					
 
 				}
 				?>
