@@ -79,7 +79,7 @@
 
 							for ($i=0; $i < $nbCat ; $i++) 
 							{ ?>
-								<option> <?php echo $resultCptCat[$i][0];  ?></option>
+								<option> <?php echo $resultCptCat[$i][1];  ?></option>
 							<?php
 							}
 

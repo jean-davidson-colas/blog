@@ -10,12 +10,16 @@
 
 	
 
-	$requeteAllArticle = "SELECT * FROM articles";
-	$queryAllArticle = mysqli_query($connexion, $requeteAllArticle);
-	$resultAllArticle = mysqli_fetch_all($queryAllArticle);
+	if (isset($_GET['id_cat'])) 
+	{
+		$requeteAllArticle = "SELECT * FROM articles WHERE id_categorie = '".$_GET['id_cat']."' ";
+		$queryAllArticle = mysqli_query($connexion, $requeteAllArticle);
+		$resultAllArticle = mysqli_fetch_all($queryAllArticle);
 
 
-	$nbArticle = count($resultAllArticle);
+		$nbArticle = count($resultAllArticle);
+	}
+
 
 	
 ?>
@@ -60,7 +64,7 @@
     		}
 
  			$premiereEntree=($pageActuelle-1)*$articleParPage; // On calcule la première entrée à lire
- 			$requetePageArticle = "SELECT * FROM articles ORDER BY date DESC LIMIT $articleParPage OFFSET $premiereEntree ";
+ 			$requetePageArticle = "SELECT * FROM articles WHERE id_categorie = '".$_GET['id_cat']."' ORDER BY date DESC LIMIT $articleParPage OFFSET $premiereEntree ";
  			$retourArticle=mysqli_query($connexion, $requetePageArticle);
  			$donneesArticle= mysqli_fetch_all($retourArticle);
  			
@@ -94,7 +98,7 @@
      			}    
      			else 
      			{
-     				echo ' <a href="allArticle.php?page='.$i.'">'.$i.'</a> ';
+     				echo ' <a href="allArticle.php?id_cat='.$_GET['id_cat'].'&&page='.$i.'">'.$i.'</a> ';
      			}
  			}
  			echo '</p>';?>
