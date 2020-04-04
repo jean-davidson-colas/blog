@@ -24,7 +24,7 @@ if (isset($_SESSION['login']))
         <li><a href="index.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a>
         <li class="dropdown">
-            <a href="allArticle.php">Articles</a>
+            <p>Articles</p>
             <div class="dropdown-content">
             
                 <?php

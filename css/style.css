@@ -98,6 +98,8 @@ header li a:hover
     text-shadow: 1px 1px 0 #969696, 1px 13px 5px #aba8a8;
 }
 
+
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -108,7 +110,7 @@ header li a:hover
   display: none;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.308);
-  min-width: 160px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 
