@@ -7,15 +7,13 @@ require 'class/user.php';
 
 session_start();
 
-if(!isset($_SESSION['bdd']))
-{
-    $_SESSION['bdd'] = new bdd();
-}
-if(!isset($_SESSION['user'])){
-    $_SESSION['user'] = new user();
-}
-if($_SESSION['user']->isConnected() != true){
-    header('Location:index.php');
+$_SESSION['bdd'] = new bdd();
+
+
+$user = new user();
+
+if(!isset($_SESSION['id'])){
+header('Location:index.php');
 }
 var_dump($_SESSION['id_droits']);
 
@@ -31,14 +29,14 @@ var_dump($_SESSION['id_droits']);
 
 <body>
 
-<?php require 'header.php'?>
+<?php include 'header.php'?>
 
 
 <main>
 <section>
     <h1> Mon compte </h1>
 
-    <h1>Bienvenue <?php $_SESSION['user']->getlogin();?></h1>
+    <h1>Bienvenue <?php echo $_SESSION['login'];?></h1>
     
             <form action="profil.php" class="formulaire" method="post">
 
@@ -83,13 +81,13 @@ var_dump($_SESSION['id_droits']);
 if(isset($_POST["envoyer"])){
     if(!empty($_POST["passwordconf"])){
         if(!empty($_POST["login"])){
-            $_SESSION['user']->profil($_POST["passwordconf"],$_POST["login"],NULL,NULL,NULL,NULL);
+            $user->profil($_POST["passwordconf"],$_POST["login"],NULL,NULL,NULL,NULL);
         }
         if(!empty($_POST["mail"])){
-            $_SESSION['user']->profil($_POST["passwordconf"],NULL,NULL,NULL,$_POST["mail"],NULL);
+            $user->profil($_POST["passwordconf"],NULL,NULL,NULL,$_POST["mail"],NULL);
         }
         if(!empty($_POST["password"])){
-            $_SESSION['user']->profil($_POST["passwordconf"],NULL,NULL,NULL,NULL,$_POST["password"]);
+            $user->profil($_POST["passwordconf"],NULL,NULL,NULL,NULL,$_POST["password"]);
         }
     }
     else{
