@@ -13,7 +13,7 @@ if (isset($_SESSION['login']))
 <nav>
     <ul>
         <?php 
-        if($_SESSION['id_droits'] = 1337)
+        if($_SESSION['id_droits'] == 1337)
         {
         ?>
             <li><a href="index.php">Accueil</a></li>
@@ -25,7 +25,7 @@ if (isset($_SESSION['login']))
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
-        else if ($_SESSION['id_droits'] = 42) 
+        else if ($_SESSION['id_droits'] == 42) 
         {?>
             <li><a href="index.php">Accueil</a></li>
             <li><a href="modo.php">modérateur</a>
@@ -36,7 +36,7 @@ if (isset($_SESSION['login']))
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
-        else if ($_SESSION['id_droits'] = 1) 
+        else if ($_SESSION['id_droits'] == 1) 
         {?>
            <li><a href="index.php">Accueil</a></li>
            <li><a href="allArticle.php">Article</a>

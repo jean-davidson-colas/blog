@@ -7,15 +7,13 @@ require 'class/user.php';
 
 session_start();
 
-if(!isset($_SESSION['bdd']))
-{
-    $_SESSION['bdd'] = new bdd();
-}
-if(!isset($_SESSION['user'])){
-    $_SESSION['user'] = new user();
-}
-if($_SESSION['user']->isConnected() != false){
-    //header('Location:index.php');
+$_SESSION['bdd'] = new bdd();
+
+
+$user = new user();
+
+if(!isset($_SESSION['id'])){
+header('Location:index.php');
 }
 
 ?>

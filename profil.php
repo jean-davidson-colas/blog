@@ -61,7 +61,7 @@ var_dump($_SESSION['id_droits']);
                 
                     <input type="submit" name="envoyer">
                 <?php
-                if($_SESSION['id_droits'] = 1337)
+                if($_SESSION['id_droits'] == 1337)
                 { ?>
                     <label> Rôle du membre : </label><br>
                     <select type="post" name="roleinput"><br>

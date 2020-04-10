@@ -13,7 +13,7 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['user']->getrole() != 1337){
+if($_SESSION['id_droits'] != 1337){
     header('Location:index.php');
 }
 ?>

@@ -59,7 +59,7 @@ class user extends bdd{
                     $_SESSION['email'] = $result['email'] ;
                     $_SESSION['id_droits'] =$result['id_droits'] ;
                     var_dump($_SESSION['id_droits']);
-                   //header('location:profil.php');
+                    header('location:profil.php');
                     /*$infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['id_droits']];*/
                     
                     
@@ -118,6 +118,15 @@ class user extends bdd{
         else{
             return false;
         }
+    }
+
+    public function droits()
+    {
+        $this->connect();
+                $requete = "SELECT * FROM droits WHERE id_droits = '$login' OR mail = '$mail'";
+                $query = mysqli_query($this->connexion,$requete);
+                $result = mysqli_fetch_all($query);
+            
     }
     public function disconnect(){
         session_unset();
