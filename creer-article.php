@@ -56,6 +56,11 @@
 </head>
 
 <body>
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 
 	<?php require 'header.php';?>
 
@@ -79,7 +84,7 @@
 
 							for ($i=0; $i < $nbCat ; $i++) 
 							{ ?>
-								<option> <?php echo $resultCptCat[$i][1];  ?></option>
+								<option> <?php echo $resultCptCat[$i][0];  ?></option>
 							<?php
 							}
 

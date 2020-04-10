@@ -7,16 +7,8 @@ require 'class/user.php';
 
 session_start();
 
-if(!isset($_SESSION['bdd']))
-{
+
     $_SESSION['bdd'] = new bdd();
-}
-if(!isset($_SESSION['user'])){
-    $_SESSION['user'] = new user();
-}
-if($_SESSION['user']->isConnected() != false){
-    header('Location:index.php');
-}
 
 ?>
 
@@ -29,7 +21,11 @@ if($_SESSION['user']->isConnected() != false){
 </head>
 
 <body>
-
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 <?php require 'header.php'?>
 
     <main>

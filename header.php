@@ -3,11 +3,6 @@
 <?php
 date_default_timezone_set('UTC');
 
-$requeteCptCat = "SELECT * FROM categories";
-$queryCptCat = mysqli_query($connexion, $requeteCptCat);
-$resultCptCat = mysqli_fetch_all($queryCptCat);
-
-$nbCat = count($resultCptCat);
 
 if (isset($_SESSION['login']))
  {
@@ -21,72 +16,30 @@ if (isset($_SESSION['login']))
         if($_SESSION['id_droits'] = 1337)
         {
         ?>
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="admin.php">Admin</a>
-        <li class="dropdown">
-            <p>Articles</p>
-            <div class="dropdown-content">
-            
-                <?php
-
-                for ($i=0; $i < $nbCat ; $i++) 
-                    { ?>
-                        <a href="allArticle.php?id_cat=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
-                        <?php
-                    }
-
-                ?>
-            </div>
-
-        </li>
-        <li><a href="creer-article.php">Add Article</a></li>
-        <li><a href="creer-categories.php">Add Categorie</a></li>
-        <li><a href="deconnexion.php">Déconnexion</a></li>
-        <?php
-        }
-        elseif ($_SESSION['id_droits'] = 42) 
-        {?>
             <li><a href="index.php">Accueil</a></li>
-            <li class="dropdown">
-            <a href="allArticle.php">Articles</a>
-            <div class="dropdown-content">
-            
-                <?php
-
-                for ($i=0; $i < $nbCat ; $i++) 
-                    { ?>
-                        <a href="allArticle.php?id=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
-                        <?php
-                    }
-
-                ?>
-            </div>
-
-        </li>
+            <li><a href="admin.php">Admin</a>
+            <li><a href="profil.php">profil</a>
+            <li><a href="allArticle.php">Article</a>
             <li><a href="creer-article.php">Add Article</a></li>
             <li><a href="creer-categories.php">Add Categorie</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
-        elseif ($_SESSION['id_droits'] = 1) 
+        else if ($_SESSION['id_droits'] = 42) 
+        {?>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="modo.php">modérateur</a>
+            <li><a href="profil.php">profil</a>
+            <li><a href="allArticle.php">Article</a>
+            <li><a href="creer-article.php">Add Article</a></li>
+            <li><a href="creer-categories.php">Add Categorie</a></li>
+            <li><a href="deconnexion.php">Déconnexion</a></li>
+        <?php
+        }
+        else if ($_SESSION['id_droits'] = 1) 
         {?>
            <li><a href="index.php">Accueil</a></li>
-           <li class="dropdown">
-            <a href="allArticle.php">Articles</a>
-            <div class="dropdown-content">
-            
-                <?php
-
-                for ($i=0; $i < $nbCat ; $i++) 
-                    { ?>
-                        <a href="allArticle.php?id=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
-                        <?php
-                    }
-
-                ?>
-            </div>
-
-        </li>
+           <li><a href="allArticle.php">Article</a>
             <li><a href="profil.php">Mon compte</a></li>
             <li><a href="creer-article.php">Add article</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
