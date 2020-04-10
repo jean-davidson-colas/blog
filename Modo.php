@@ -13,14 +13,14 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['user']->getrole() != 1337){
-    header('Location:index.php');
+if($_SESSION['user']->getrole() != "42"){
+    header('Location:profil.php');
 }
 ?>
 <html>
 
 <head>
-        <title>Administration</title> 
+        <title>Modérateur</title> 
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@ if($_SESSION['user']->getrole() != 1337){
 
 <main>
 <section>
-    <h1> Administration du site </h1>
+    <h1> Modération du site </h1>
             
 </section>
 

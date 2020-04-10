@@ -13,8 +13,9 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-
-
+if($_SESSION['user']->isConnected() != false){
+    header('Location:index.php');
+}
 ?>
 
 
@@ -23,7 +24,8 @@ if(!isset($_SESSION['user'])){
 <meta charset="utf-8" />
         <title>Connexion</title> 
         <link rel="stylesheet" href="css/style.css">
-        
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
 </head>
 
@@ -51,18 +53,18 @@ if(!isset($_SESSION['user'])){
 <section>
 <?php
 if(isset($_POST["send"])){
-    if($_SESSION["user"]->connexion($_POST['login'],$_POST['password']) == false){
+    if($_SESSION["user"]->connexion($_POST["login"],$_POST["password"]) == false){
         ?>
             <p>Un problème est survenue lors de la connexion. Veuillez vérifer vos informations de connexion.</p>
         <?php
     }
     else{
         $_SESSION["user"]->connexion($_POST["login"],$_POST["password"]);
-
-        if($_SESSION['user']->getrole() == "admin"){
-            $_SESSION["role"] = true;
+        $_SESSION["login"] = false;
+        if($_SESSION['user']->getrole() == 1337){
+            $_SESSION["id_droits"] = true;
         }
-        header("location:index.php");
+        header('location:profil.php');
     }
     
 }

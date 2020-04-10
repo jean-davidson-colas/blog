@@ -32,14 +32,14 @@
     	$queryCat = mysqli_query($connexion, $requeteCat);
     	$resultCat = mysqli_fetch_assoc($queryCat);
 
-    	//var_dump($resultCat);
+    	
 
 
     	$requeteNewArticle = "INSERT INTO articles (article, id_utilisateur, id_categorie, date)VALUES ('$newArticle', '".$resultInfoUser['id']."', '".$resultCat['id']."', '$date')";
     	$queryNewArticle = mysqli_query($connexion, $requeteNewArticle);
     	
 
-    	//echo $requeteNewArticle;
+    	
     	
     }
 
@@ -56,13 +56,15 @@
 </head>
 
 <body>
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 
 	<?php require 'header.php';?>
 
 	<main>
-	<?php
-echo "<h1>Bonjour $login ecrivez votre article </h1>";
-?>
 		<?php
 
 		if (isset($_SESSION['login'])) 
