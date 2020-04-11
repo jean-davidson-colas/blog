@@ -59,6 +59,7 @@ if(isset($_POST['envoyer'])){
         ?>
         <p>Le compte a été créé.</p>
         <?php
+        header('location:connexion.php');
     }
     elseif($user->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "log"){
         ?>

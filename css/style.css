@@ -20,7 +20,35 @@ body
     /*color: rgb(6, 6, 56);*/
     margin:0;
     padding:0;
+    width: 100%;
+    height: 100%;
 }
+.acc
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 300px;
+}
+.acc ul
+{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 300px;
+    list-style-type:none ;
+}
+.acc p
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(11, 11, 97);
+    text-shadow: 2px 2px rgb(184, 178, 178);
+   
+}
+
 .admin
 {
     font-family: "Ma_Super_Fonte";
@@ -63,8 +91,8 @@ body
 {
     font-family: "Ma_Super_Fonte";
     background-image: url(../img/jiraiya-4.jpg);
-    background-size: 1300px 900px;
-    background-repeat: no-repeat;
+    position: absolute;
+    background-size: cover;
     background-attachment: scroll;
     color: rgb(6, 6, 56);
     width: 100%;
@@ -123,7 +151,7 @@ input[type="submit"]
 	transition: all 0.2s ease;
 	color: white;
 	border-radius: 40px;
-	font-size: 18px;
+	font-size: 10px;
 }
 
 
@@ -183,10 +211,17 @@ footer
     background-color: rgba(33,33,33,0.7);
     background-position: center;
     background-size: cover;
+    width: 100%;
     height: 10vh;
     align-content: center;
     align-items:center;
     justify-content: center;
+    position:absolute;
+    bottom:-1130px;
+}
+audio{
+    width: 250px;
+    height: 30px;
 }
 
 
@@ -214,7 +249,7 @@ footer
     justify-items:center;
     max-width: 20vw;
     font-size: 15px;
-    text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
+    text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
 }
 
 .formulaire input
@@ -259,12 +294,15 @@ thead{
     flex-direction:column;
     align-items:space-between;
     width: 100%;
+    font-size: 26px;
+    text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
     
 }
 thead tr th
 {
     width: 250px;
     text-align: center;
+    color: rgb(6, 6, 56);
     border: rgb(22, 22, 22);
 }
 td{
