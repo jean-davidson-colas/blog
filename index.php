@@ -10,7 +10,8 @@ session_start();
 ?>
 
 <head>
-        <title>Accueil</title> 
+        <title>Accueil</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
         <link rel="stylesheet" href="css/style.css">
         
 </head>
@@ -31,11 +32,11 @@ session_start();
 	<h1>Bienvenue  sur Konoha.Blog </h1>
 	<h2>Retrouver chaque jour des épisodes de Naruto a voir gratuitement!!!</h2>
 	<section>
-	<iframe width="1280" height="615" src="https://www.youtube.com/embed/FOfWwN8lp9s" 
+	<iframe width=100% height="615" src="https://www.youtube.com/embed/FOfWwN8lp9s" 
 		frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</section>
+</section><hr>
 <section class="acc">
-<iframe width="560px" height="515" src="https://www.youtube.com/embed/m7feI8093iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="860px" height="780" src="https://www.youtube.com/embed/m7feI8093iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 	<ul>
 		<li>
