@@ -8,8 +8,6 @@ require 'class/user.php';
 session_start();
 
 $_SESSION['bdd'] = new bdd();
-
-
 $user = new user();
 
 

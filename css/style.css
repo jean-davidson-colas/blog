@@ -264,8 +264,8 @@ thead{
 thead tr th
 {
     width: 250px;
-    
     text-align: center;
+    border: rgb(22, 22, 22);
 }
 td{
     width: 15%;

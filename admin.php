@@ -13,9 +13,11 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['id_droits'] != 1337){
+if($_SESSION['id_droits'] != 1337 || $_SESSION['login'] != "admin"){
     header('Location:index.php');
 }
+
+
 ?>
 <html>
 
