@@ -131,9 +131,9 @@ h2
 {
     font-family: "Ma_Super_Fonte",cursive;
     display: flex;
-    font-size: 40px;
-    justify-content: center;
     font-size: 25px;
+    justify-content: center;
+    
 }
 
 button a
@@ -314,21 +314,21 @@ thead{
     flex-direction:column;
     align-items:space-between;
     width: 100%;
-    font-size: 24px;
+    height:45px;
+    font-size: 34px;
     text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
     border:  0.5px outset white;
     
 }
 thead tr th
 {
-    width: 250px;
+    width: 380px;
     text-align: center;
     color: rgb(6, 6, 56);
     border: rgb(22, 22, 22);
 }
 td{
     width: 15%;
-    
     text-align: center;
     
 }

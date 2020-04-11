@@ -22,7 +22,7 @@ if($_SESSION['id_droits'] != 1337 || $_SESSION['login'] != "admin"){
 <html>
 
 <head>
-        <title>Administration</title> 
+        <title>Administration-Okage</title> 
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ if($_SESSION['id_droits'] != 1337 || $_SESSION['login'] != "admin"){
 
 <main>
 <section>
-    <h1> Administration du site </h1>
+    <h1> Espace Okage </h1>
             
 </section>
 
@@ -57,14 +57,14 @@ $_SESSION['bdd']->close();
 
 
 
-?><h2>Gestion Utilisateurs</h2>
+?><h2>Gestion _Utilisateurs</h2>
 <table>
 <thead>
     <tr>
-        <th>id</th>
-        <th>login</th>
-        <th>email</th>
-        <th>id_droits</th>
+        <th>Rang</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Grade</th>
         <th>Supprimer??</th>
         
     </tr>
@@ -113,15 +113,15 @@ $art=$_SESSION['bdd']->execute("SELECT * FROM articles");
 $_SESSION['bdd']->close();
 
 ?></br></br>
-<h2>Gestion articles</h2>
+<h2>Gestion _Articles</h2>
 <table class= "ad">
 <thead>
     <tr>
-        <th>id.article</th>
-        <th>id.utilisateur</th>
-        <th>id.categorie</th>
-        <th>article</th>
-        <th>date</th>
+        <th>Id.Rapport</th>
+        <th>Rang_utilisateur</th>
+        <th>Village</th>
+        <th>Rapports</th>
+        <th>Date</th>
         <th>Supprimer??</th>
         
     </tr>
@@ -165,16 +165,16 @@ $com=$_SESSION['bdd']->execute("SELECT * FROM commentaires");
 $_SESSION['bdd']->close();
 
 ?></br></br></br>
-<h2>Gestion Commentaires</h2>
+<h2>Gestion _Commentaires</h2>
 <table>
 <thead>
     <tr> 
                                     				
-        <th>id</th>
-        <th>id_article</th>
-        <th>id_utilisateur</th>
-        <th>commentaire</th>
-        <th>date</th>
+        <th>Id</th>
+        <th>Id_Rapport</th>
+        <th>Rang_utilisateur</th>
+        <th>Missive</th>
+        <th>Date</th>
         <th>Supprimer??</th>
         
     </tr>

@@ -36,7 +36,9 @@ session_start();
 		frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section><hr>
 <section class="acc">
-<iframe width="860px" height="780" src="https://www.youtube.com/embed/m7feI8093iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="860px" height="780" src="https://www.youtube.com/embed/m7feI8093iY"
+frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
 
 	<ul>
 		<li>
