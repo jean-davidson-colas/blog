@@ -13,20 +13,20 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['id_droits'] != 1337){
+if($_SESSION['id_droits'] != 42){
     header('Location:index.php');
 }
 ?>
 <html>
 
 <head>
-        <title>Administration</title> 
+        <title>Modérateur</title> 
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body class ="admin">
+<body class ="modo">
 <div class="banniere">
 		<div class="logo">
 			<img src="img/logo.png">
@@ -38,7 +38,7 @@ if($_SESSION['id_droits'] != 1337){
 
 <main>
 <section>
-    <h1> Administration du site </h1>
+    <h1> Modération du site </h1>
             
 </section>
 

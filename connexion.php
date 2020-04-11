@@ -6,16 +6,16 @@ require 'class/user.php';
 
 session_start();
 
-if(!isset($_SESSION['bdd']))
-{
+
+
     $_SESSION['bdd'] = new bdd();
-}
-if(!isset($_SESSION['user'])){
-    $_SESSION['user'] = new user();
-}
-if($_SESSION['user']->isConnected() != false){
-    header('Location:index.php');
-}
+
+
+    $user = new user();
+
+    if(isset($_SESSION['id'])){
+        header('Location:index.php');
+        }
 ?>
 
 
@@ -24,12 +24,17 @@ if($_SESSION['user']->isConnected() != false){
 <meta charset="utf-8" />
         <title>Connexion</title> 
         <link rel="stylesheet" href="css/style.css">
-        
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 <?php require 'header.php'?>
 
 
@@ -52,19 +57,7 @@ if($_SESSION['user']->isConnected() != false){
 <section>
 <?php
 if(isset($_POST["send"])){
-    if($_SESSION["user"]->connexion($_POST["login"],$_POST["password"]) == false){
-        ?>
-            <p>Un problème est survenue lors de la connexion. Veuillez vérifer vos informations de connexion.</p>
-        <?php
-    }
-    else{
-        $_SESSION["user"]->connexion($_POST["login"],$_POST["password"]);
-        $_SESSION["login"] = false;
-        if($_SESSION['user']->getrole() == "admin"){
-            $_SESSION["role"] = true;
-        }
-        header('location:index.php');
-    }
+    $user->connexion($_POST["login"],$_POST["password"]);
     
 }
 

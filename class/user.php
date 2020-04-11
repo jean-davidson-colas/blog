@@ -5,7 +5,7 @@ class user extends bdd{
     private $id = NULL;
     private $login = NULL;
     private $mail = NULL;
-    private $role = NULL;
+    private $id_droits = NULL;
 
 
     public function inscription($login,$mdp,$confmdp,$mail){
@@ -14,14 +14,17 @@ class user extends bdd{
                 $this->connect();
                 $requete = "SELECT login,mail FROM utilisateurs WHERE login = '$login' OR mail = '$mail'";
                 $query = mysqli_query($this->connexion,$requete);
-                $result = mysqli_fetch_row($query);
+                $result = mysqli_fetch_all($query);
                 
                 if(empty($result)){
                     $mdp = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
-                    $requete = "INSERT INTO `utilisateurs`(`login`, `mdp`, `mail`) VALUES ('$login','$mdp','$mail')";
+                    $requete ="INSERT INTO `utilisateurs` (`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$mdp', '$mail', '1')";
                     //var_dump($requete);
                     $query = mysqli_query($this->connexion,$requete);
                     //var_dump($query);
+                    
+                     
+                     //var_dump($requete);
                     return "ok";
                     }
                 else{
@@ -35,29 +38,40 @@ class user extends bdd{
         else{
             return "empty";
         };
-
+        header('location:connexion.php');
     }
-    public function connexion($login,$mdp){
+    public function connexion($login,$mdp)
+    {
         $this->connect();
         $requete = "SELECT * FROM utilisateurs WHERE login = '$login'";
         $query = mysqli_query($this->connexion,$requete);
         $result = mysqli_fetch_assoc($query);
+        
 
-        if(!empty($result)){
-            if($login == $result["login"]){
-                if(password_verify($mdp,$result["mdp"])){
-                    $this->id = $result["id"];
-                    $this->login = $result["login"];
-                    $this->mail = $result["mail"];
-                    $this->role = $result["role"];
-                    return [$this->id,$this->login,$this->mail,$this->role];
+        if(!empty($result))
+        {
+            if($login == $result["login"])
+            {
+                if(password_verify($mdp,$result["password"]))
+                {
+                    $_SESSION['id'] = $result['id'];
+                    $_SESSION['login'] = $result['login'] ;
+                    $_SESSION['email'] = $result['email'] ;
+                    $_SESSION['id_droits'] =$result['id_droits'] ;
+                    //var_dump($_SESSION['id_droits']);
+                    header('location:profil.php');
+                    /*$infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['id_droits']];*/
+                    
+                    
+                    
+                   
                 }
                 else{
-                    return false;
+                    echo "mot de passe errone";
                 }
             }
             else{
-                return false;
+                echo "login errone";
             }
         }
         else{
@@ -66,12 +80,12 @@ class user extends bdd{
     }
     public function profil($login = "",$mail= "",$mdp = "",$confmdp=""){
         $this->connect();
-    $request = "SELECT mdp FROM utilisateurs WHERE id = ".$this->id."";
+    $request = "SELECT mdp FROM utilisateurs WHERE id = ".$_SESSION['id']."";
     $query = mysqli_query($this->connexion,$request);
     $fetchmdp = mysqli_fetch_assoc($query);
         if(password_verify($confmdp,$fetchmdp["mdp"])){
             if($login != NULL){
-                $request = "SELECT login FROM utilisateurs WHERE login = '$login'";
+                $request = "SELECT login FROM utilisateurs WHERE id = ".$_SESSION['id']."";
                 $query = mysqli_query($this->connexion,$request);
                 $result = mysqli_fetch_all($query);
                 if(empty($result)){
@@ -82,7 +96,7 @@ class user extends bdd{
                 }
             }
             if($mail != NULL){
-                $request = "SELECT mail FROM utilisateurs WHERE login = '$login'";
+                $request = "SELECT mail FROM utilisateurs WHERE id = ".$_SESSION['id']."";
                 $query = mysqli_query($this->connexion,$request);
                 $result = mysqli_fetch_all($query);
                 if(empty($result)){
@@ -95,40 +109,33 @@ class user extends bdd{
             if($mdp != NULL)
             {
                 $mpd = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
-                $request = "UPDATE utilisateurs SET mdp = '$mdp' WHERE id = ".$this->id."";
+                $request = "UPDATE utilisateurs SET mdp = '$mdp' WHERE id = ".$_SESSION['id']."";
                 $query = mysqli_query($this->connexion,$request);
             }
-            $request = "UPDATE utilisateurs SET login = '".$this->login."',mail = '".$this->mail."'WHERE id = ".$this->id."";
+            $request = "UPDATE utilisateurs SET login = '".$login."',mail = '".$mail."'WHERE id = ".$_SESSION['id']."";
             $query = mysqli_query($this->connexion,$request);
         }
         else{
             return false;
         }
     }
+
+    public function droits()
+    {
+        $this->connect();
+                $requete = "SELECT * FROM droits WHERE id_droits = '$login' OR mail = '$mail'";
+                $query = mysqli_query($this->connexion,$requete);
+                $result = mysqli_fetch_all($query);
+            
+    }
     public function disconnect(){
-        $this->id = NULL;
-        $this->login = NULL;
-        $this->mail = NULL;
-        $this->role = NULL;
+        session_unset();
+        session_destroy();
+        header('location:index.php');
     }
-    public function getid(){
-        return $this->id;
-    }
-    public function isConnected(){
-        if ($this->id != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function getlogin(){
-        return $this->login;
-    }
-    public function getrole(){
-        return $this->role;
-    }
-
+   
+    
+    
    
 }
 ?>
