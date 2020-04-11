@@ -35,9 +35,8 @@ session_start();
 		frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section class="acc">
-<iframe width="860px" height="515" src="https://www.youtube.com/embed/m7feI8093iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560px" height="515" src="https://www.youtube.com/embed/m7feI8093iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-	<p>Toujours plus de Shippuden avec Konoha .blog
 	<ul>
 		<li>
 		<u>nom:</u>uzumaki
@@ -72,15 +71,13 @@ session_start();
 		<li>
 		<u>description:</u>Personnage principale de la serie, Naruto est assez turbulent et casse-cou. Il est le meilleur ami de Sasuke(bien qu'il se cherche des crosse souvent) qu'il envie quelque fois car il l'admire. Il est amoureux de Sakura mais elle le deteste!! Il était le cancre de l'académie des ninjas mais il est très fort et très imprevisible. Il est déterminé et plein de volonté! Et surtout, le démon kyubi, scellé en lui, lui donne une force incroyable! Son reve est de devenir hokage.
 		</li>
+		<p>toujours plus de shippuden</p>
 	</ul>
-	</p>
+	
 </section>
 </main>
 
 
 <?php include 'footer.php'?>
-
-
 </body>
-
 </html>
