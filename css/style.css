@@ -4,7 +4,12 @@
     src: url("../polices/njnaruto") format('truetype');
     
 }
-
+@font-face
+{
+    font-family: "Ma_Super_Fonte2";
+    src: url("../polices/Manga bold") format('OpenType');
+    
+}
 
 
 html
@@ -164,6 +169,7 @@ header
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 header nav
@@ -193,7 +199,9 @@ header li a
     font-size: 25px;
     color: #faf6f6;
     text-decoration: none;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Ma_Super_Fonte2";
+    font-size: 40px;
+
 }
 
 header li a:hover

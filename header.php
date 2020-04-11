@@ -19,8 +19,8 @@ if (isset($_SESSION['login']))
             <li><a href="admin.php">Admin</a>
             <li><a href="profil.php">profil</a>
             <li><a href="allArticle.php">Article</a>
-            <li><a href="creer-article.php">Add Article</a></li>
-            <li><a href="creer-categories.php">Add Categorie</a></li>
+            <li><a href="creer-article.php">Add Art.</a></li>
+            <li><a href="creer-categories.php">Add Cat.</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
@@ -30,8 +30,8 @@ if (isset($_SESSION['login']))
             <li><a href="modo.php">modérateur</a>
             <li><a href="profil.php">profil</a>
             <li><a href="allArticle.php">Article</a>
-            <li><a href="creer-article.php">Add Article</a></li>
-            <li><a href="creer-categories.php">Add Categorie</a></li>
+            <li><a href="creer-article.php">Add Art.</a></li>
+            <li><a href="creer-categories.php">Add Cat.</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
@@ -40,7 +40,7 @@ if (isset($_SESSION['login']))
            <li><a href="index.php">Accueil</a></li>
            <li><a href="allArticle.php">Article</a>
             <li><a href="profil.php">Mon compte</a></li>
-            <li><a href="creer-article.php">Add article</a></li>
+            <li><a href="creer-article.php">Add Art.</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
