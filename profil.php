@@ -15,7 +15,7 @@ $user = new user();
 if(!isset($_SESSION['id'])){
 header('Location:index.php');
 }
-var_dump($_SESSION['id_droits']);
+
 
 
 ?>
@@ -27,7 +27,12 @@ var_dump($_SESSION['id_droits']);
         
 </head>
 
-<body>
+<body class = "profil">
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 
 <?php include 'header.php'?>
 
@@ -61,6 +66,7 @@ var_dump($_SESSION['id_droits']);
                 
                     <input type="submit" name="envoyer">
                 <?php
+                
                 if($_SESSION['id_droits'] == 1337)
                 { ?>
                     <label> Rôle du membre : </label><br>

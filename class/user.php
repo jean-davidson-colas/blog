@@ -38,7 +38,7 @@ class user extends bdd{
         else{
             return "empty";
         };
-
+        header('location:connexion.php');
     }
     public function connexion($login,$mdp)
     {
@@ -58,7 +58,7 @@ class user extends bdd{
                     $_SESSION['login'] = $result['login'] ;
                     $_SESSION['email'] = $result['email'] ;
                     $_SESSION['id_droits'] =$result['id_droits'] ;
-                    var_dump($_SESSION['id_droits']);
+                    //var_dump($_SESSION['id_droits']);
                     header('location:profil.php');
                     /*$infoUser = [$_SESSION['login'], $_SESSION['mail'], $_SESSION['id_droits']];*/
                     

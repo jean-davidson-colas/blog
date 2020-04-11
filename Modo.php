@@ -13,8 +13,8 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['user']->getrole() != "42"){
-    header('Location:profil.php');
+if($_SESSION['id_droits'] != 42){
+    header('Location:index.php');
 }
 ?>
 <html>
@@ -26,7 +26,7 @@ if($_SESSION['user']->getrole() != "42"){
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class ="modo">
 <div class="banniere">
 		<div class="logo">
 			<img src="img/logo.png">
@@ -51,9 +51,10 @@ $uti=$_SESSION['bdd']->execute("SELECT * FROM utilisateurs");
 
 $_SESSION['bdd']->close();
 
-foreach($uti as $utili) 
-{ 
-     
+
+
+
+
 ?>
 <table>
 <thead>
@@ -62,8 +63,22 @@ foreach($uti as $utili)
         <th>login</th>
         <th>email</th>
         <th>id_droits</th>
+        
+        
     </tr>
 </thead>
+</table>
+<?php
+
+
+foreach($uti as $utili) 
+{ 
+     
+?>
+
+
+<?php ?>
+<table>
 <tbody>
     <tr>
     <td><?php echo $utili[0] ; ?> </td>
@@ -76,7 +91,7 @@ foreach($uti as $utili)
     </td>
     </tr>
 </tbody>
-</table> 
+</table> </br>
 <?php
 
 
@@ -95,11 +110,8 @@ $art=$_SESSION['bdd']->execute("SELECT * FROM articles");
 
 $_SESSION['bdd']->close();
 
-foreach($art as $art3) 
-{ 
-     
-?>
-<table>
+?></br></br>
+<table class= "ad">
 <thead>
     <tr>
         <th>id.article</th>
@@ -107,25 +119,34 @@ foreach($art as $art3)
         <th>id.categorie</th>
         <th>article</th>
         <th>date</th>
+        <th></th>
         
     </tr>
 </thead>
-<tbody>
+
+</table>
+<?php
+foreach($art as $art3) 
+{ 
+     
+?>
+<table class= "adb">
+<tbody >
     <tr>
     <td><?php echo $art3[0] ; ?> </td>
     <td><?php echo $art3[2] ; ?> </td>
     <td><?php echo $art3[3] ; ?> </td>
     <td><?php echo $art3[1] ; ?> </td>
     <td><?php echo $art3[4] ; ?> </td>
-    <td></td>
+   
     <td>
     <form method="post" action="admin.php" id="suppr">
     <button type="submit" id="submit" name="art" value ="<?php echo $art3[2];?>">Supprimer</button>
     </form>
     </td>
     </tr>
-</tbody>
-  </table> </br> 
+</tbodY>
+  </table></br></br> 
   <?php
 
 //*suppression des articles
@@ -140,10 +161,7 @@ $_SESSION['bdd']->connect();
 $com=$_SESSION['bdd']->execute("SELECT * FROM commentaires");
 $_SESSION['bdd']->close();
 
-foreach($com as $com3) 
-{ 
-     
-?>
+?></br></br></br>
 <table>
 <thead>
     <tr> 
@@ -153,9 +171,18 @@ foreach($com as $com3)
         <th>id_utilisateur</th>
         <th>commentaire</th>
         <th>date</th>
+        <th></th>
         
     </tr>
 </thead>
+
+</table>
+<?php
+foreach($com as $com3) 
+{ 
+     
+?>
+<table>
 <tbody>
     <tr>
     <td><?php echo $com3[0] ; ?> </td>
@@ -163,7 +190,7 @@ foreach($com as $com3)
     <td><?php echo $com3[3] ; ?> </td>
     <td><?php echo $com3[1] ; ?> </td>
     <td><?php echo $com3[4] ; ?> </td>
-    <td></td>
+    
     <td>
     <form method="post" action="admin.php" id="supprC">
     <button type="submit" id="submit" name="com" value ="<?php echo $com3[3];?>">Supprimer</button>

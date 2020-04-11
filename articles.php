@@ -58,7 +58,7 @@ if (isset($_GET['id']))
 				<?php
 				echo $resultArticle[0][1];
 				?>
-				Créer par :
+				Créer par : <?php ?>
 			</div>
 
 			<div>
@@ -70,8 +70,8 @@ if (isset($_GET['id']))
 
 				$nbCommentaire = count($resultCommentaire);
 
-				echo $requeteCommentaire;
-				var_dump($resultCommentaire);
+				//echo $requeteCommentaire;
+				//var_dump($resultCommentaire);
 
 				if (empty($resultCommentaire)) 
 				{

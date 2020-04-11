@@ -1,3 +1,12 @@
+@font-face
+{
+    font-family: "Ma_Super_Fonte";
+    src: url("../polices/njnaruto") format('truetype');
+    
+}
+
+
+
 html
 {
     margin:0;
@@ -5,16 +14,82 @@ html
 }
 
 body
-{
+{   background-image: url(../img/test.png);
+    font-family: "Ma_Super_Fonte";
+    color: rgb(228, 88, 23);
+    /*color: rgb(6, 6, 56);*/
     margin:0;
     padding:0;
+}
+.admin
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/test.png);
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
+}
+.profil
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/haku-jpg);
+    position: absolute;
+    background-size: cover;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
+}
+.modo
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/zabuza-jpg);
+    position: absolute;
+    background-size: cover;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
+}
+.ins
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/jiraiya-4.jpg);
+    background-size: 1300px 900px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
 }
 
 h1
 {
+    font-family: "Ma_Super_Fonte",cursive;
     display: flex;
     font-size: 40px;
     justify-content: center;
+    text-shadow: 2px 2px whitesmoke;
+}
+
+h2
+{
+    font-family: "Ma_Super_Fonte",cursive;
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    font-size: 25px;
 }
 
 button a
@@ -69,6 +144,7 @@ header nav
     height:8vh;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.308);
+    /*background-color: rgba(0, 0, 0, 0.308);*/
 }
 
 header ul
@@ -107,7 +183,7 @@ footer
     background-color: rgba(33,33,33,0.7);
     background-position: center;
     background-size: cover;
-    height: 15vh;
+    height: 10vh;
     align-content: center;
     align-items:center;
     justify-content: center;
@@ -127,6 +203,7 @@ footer
     padding:15px;
     background-color: rgba(220,152,117,0.7);
 }
+
 
 .formulaire label
 {
@@ -153,6 +230,49 @@ footer
     color: rgb(22, 22, 22);
     text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
 }
+table{
+    width: 100%;
+    
+    z-index: 1;
+    
+}
+
+.ad{
+    width: 100%;
+    z-index: 1;
+    
+}
+.adb
+{
+    width: 100%;
+    
+    
+}
+.adb td
+{
+    width: 18%;
+    
+    
+}
+thead{
+    display: flex;
+    flex-direction:column;
+    align-items:space-between;
+    width: 100%;
+    
+}
+thead tr th
+{
+    width: 250px;
+    
+    text-align: center;
+}
+td{
+    width: 15%;
+    
+    text-align: center;
+}
+
 
 
 /*--------------------INDEX--------------------*/
