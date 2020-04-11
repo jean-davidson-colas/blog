@@ -65,7 +65,7 @@ $_SESSION['bdd']->close();
         <th>login</th>
         <th>email</th>
         <th>id_droits</th>
-        
+        <th>Supprimer??</th>
         
     </tr>
 </thead>
@@ -121,7 +121,7 @@ $_SESSION['bdd']->close();
         <th>id.categorie</th>
         <th>article</th>
         <th>date</th>
-        <th></th>
+        <th>Supprimer??</th>
         
     </tr>
 </thead>
@@ -173,7 +173,7 @@ $_SESSION['bdd']->close();
         <th>id_utilisateur</th>
         <th>commentaire</th>
         <th>date</th>
-        <th></th>
+        <th>Supprimer??</th>
         
     </tr>
 </thead>

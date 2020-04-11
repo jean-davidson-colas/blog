@@ -71,6 +71,7 @@ if (isset($_GET['id']))
 				$nbCommentaire = count($resultCommentaire);
 
 				//echo $requeteCommentaire;
+				
 				//var_dump($resultCommentaire);
 
 				if (empty($resultCommentaire)) 
@@ -96,7 +97,7 @@ if (isset($_GET['id']))
 			<div>
 				<form action="articles.php?id=<?php echo $resultArticle[0][0]?>" method="post">
 
-					<textarea name="commentaire" placeholder="Votre Message"></textarea>
+					<textarea rows="10" cols="43"name="commentaire" placeholder="Votre Message"></textarea>
 					<br />
 					<input id="button1" type="submit" name="envoyer" value="Envoyer">
 

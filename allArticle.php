@@ -108,6 +108,10 @@
 		}
 
 		?>
+		<section>
+		<iframe width="1268" height="715" src="https://www.youtube.com/embed/nx2xTLUQj_4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		</section>
 		
 	</main>
 
