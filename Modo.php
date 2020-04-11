@@ -56,6 +56,7 @@ $_SESSION['bdd']->close();
 
 
 ?>
+<h2>Gestion Utilisateurs</h2>
 <table>
 <thead>
     <tr>
@@ -111,6 +112,7 @@ $art=$_SESSION['bdd']->execute("SELECT * FROM articles");
 $_SESSION['bdd']->close();
 
 ?></br></br>
+<h2>Gestion articles</h2>
 <table class= "ad">
 <thead>
     <tr>
@@ -162,6 +164,7 @@ $com=$_SESSION['bdd']->execute("SELECT * FROM commentaires");
 $_SESSION['bdd']->close();
 
 ?></br></br></br>
+<h2>Gestion commentaires</h2>
 <table>
 <thead>
     <tr> 

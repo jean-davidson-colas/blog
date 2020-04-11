@@ -157,14 +157,14 @@ input[type="submit"]
 	padding-bottom: 4px;
 	margin-top: 30px;
 	box-shadow: 0px 1px 10px grey;
-	background-color: #335BD4;
+	background-color:rgb(228, 88, 23);
 	text-decoration: none;
-	width: 220px;
-	height: 50px;
+	width: 120px;
+	height: 30px;
 	text-align:center;
 	transition: all 0.2s ease;
 	color: white;
-	border-radius: 40px;
+	border-radius: 20px;
 	font-size: 10px;
 }
 
@@ -253,7 +253,7 @@ audio{
     max-width:25vw;
     margin: auto;
     padding:15px;
-    background-color: rgba(220,152,117,0.7);
+    background-color: rgba(66, 51, 41, 0.829);
 }
 
 
@@ -314,7 +314,7 @@ thead{
     width: 100%;
     font-size: 24px;
     text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
-    border:  1px outset white;
+    border:  0.5px outset white;
     
 }
 thead tr th
