@@ -7,8 +7,10 @@ require 'class/user.php';
 
 session_start();
 
+$_SESSION['bdd'] = new bdd();
+$user = new user();
 
-    $_SESSION['bdd'] = new bdd();
+
 
 ?>
 
@@ -20,7 +22,8 @@ session_start();
         
 </head>
 
-<body>
+<body class="ins">
+
 <div class="banniere">
 		<div class="logo">
 			<img src="img/logo.png">
@@ -52,22 +55,23 @@ session_start();
 <?php
 
 if(isset($_POST['envoyer'])){
-    if($_SESSION["user"]->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "ok"){
+    if($user->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "ok"){
         ?>
         <p>Le compte a été créé.</p>
         <?php
+        header('location:connexion.php');
     }
-    elseif($_SESSION["user"]->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "log"){
+    elseif($user->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "log"){
         ?>
             <p>L'identifiant ou l'email est déjà pris.</p>
         <?php
     }
-    elseif($_SESSION["user"]->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "empty"){
+    elseif($user->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "empty"){
         ?>
             <p>Veuillez remplir tous les champs.</p>
         <?php
     }
-    elseif($_SESSION["user"]->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "mdp"){
+    elseif($user->inscription($_POST['login'],$_POST["password"],$_POST['passwordconf'],$_POST['mail']) == "mdp"){
         ?>
             <p>Les mots de passes ne sont pas identiques.</p>
         <?php

@@ -1,47 +1,93 @@
 <header>
-
-<?php
+    <?php
 date_default_timezone_set('UTC');
+$connexion = mysqli_connect("localhost", "root", "", "blog");
+
 
 
 if (isset($_SESSION['login']))
  {
     $login = $_SESSION['login'];
     $today = date("d.m.y")
+
+    
 ?>
 
 <nav>
     <ul>
         <?php 
-        if($_SESSION['id_droits'] = 1337)
+        if($_SESSION['id_droits'] == 1337)
         {
+            $requeteCptCat = "SELECT * FROM categories";
+            $queryCptCat = mysqli_query($connexion, $requeteCptCat);
+            $resultCptCat = mysqli_fetch_all($queryCptCat);
+
+            $nbCat = count($resultCptCat);
         ?>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="admin.php">Admin</a>
-            <li><a href="profil.php">profil</a>
-            <li><a href="allArticle.php">Article</a>
-            <li><a href="creer-article.php">Add Article</a></li>
-            <li><a href="creer-categories.php">Add Categorie</a></li>
-            <li><a href="deconnexion.php">Déconnexion</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="admin.php">Admin</a>
+         <li class="dropdown">
+            <a href="allArticle.php">Articles</a>
+            <div class="dropdown-content">
+                <?php
+
+                for ($i=0; $i < $nbCat ; $i++) 
+                    { ?>
+                        <a href="allArticle.php?id_cat=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
+                    <?php
+                    }
+
+                    ?>
+            </div>
+        </li>
+        <li><a href="creer-article.php">Add Article</a></li>
+        <li><a href="creer-categories.php">Add Categorie</a></li>
+        <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
-        else if ($_SESSION['id_droits'] = 42) 
+        if ($_SESSION['id_droits'] == 42) 
         {?>
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="modo.php">modérateur</a>
+            <li><a href="modo.php">Modérateur</a>
             <li><a href="profil.php">profil</a>
-            <li><a href="allArticle.php">Article</a>
-            <li><a href="creer-article.php">Add Article</a></li>
-            <li><a href="creer-categories.php">Add Categorie</a></li>
+            <li class="dropdown">
+                <a href="allArticle.php">Articles</a>
+                <div class="dropdown-content">
+                    <?php
+
+                    for ($i=0; $i < $nbCat ; $i++) 
+                    { ?>
+                        <a href="allArticle.php?id=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
+                    <?php
+                    }
+
+                    ?>
+                </div>
+            </li>
+            <li><a href="creer-article.php">Add Art.</a></li>
+            <li><a href="creer-categories.php">Add Cat.</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
-        else if ($_SESSION['id_droits'] = 1) 
+        if ($_SESSION['id_droits'] == 1) 
         {?>
            <li><a href="index.php">Accueil</a></li>
-           <li><a href="allArticle.php">Article</a>
+           <li class="dropdown">
+                <a href="allArticle.php">Articles</a>
+                <div class="dropdown-content">
+
+                    <?php
+
+                    for ($i=0; $i < $nbCat ; $i++) 
+                    { ?>
+                        <a href="allArticle.php?id=<?php echo $resultCptCat[$i][0] ?>"> <?php echo $resultCptCat[$i][1];  ?></a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </li>
             <li><a href="profil.php">Mon compte</a></li>
-            <li><a href="creer-article.php">Add article</a></li>
+            <li><a href="creer-article.php">Add Art.</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
         <?php
         }
@@ -70,5 +116,5 @@ else
 <?php
  }
 ?>
-
+<audio>
 </header>

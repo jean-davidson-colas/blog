@@ -13,8 +13,8 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-if($_SESSION['user']->getrole() != "42"){
-    header('Location:profil.php');
+if($_SESSION['id_droits'] != 42){
+    header('Location:index.php');
 }
 ?>
 <html>
@@ -26,7 +26,6 @@ if($_SESSION['user']->getrole() != "42"){
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
 <div class="banniere">
 		<div class="logo">
 			<img src="img/logo.png">
@@ -34,11 +33,12 @@ if($_SESSION['user']->getrole() != "42"){
 	</div>
 
 <?php require 'header.php'?>
+<body class ="modo">
 
 
 <main>
 <section>
-    <h1> Modération du site </h1>
+    <h1> Espace Capitaine </h1>
             
 </section>
 
@@ -51,19 +51,35 @@ $uti=$_SESSION['bdd']->execute("SELECT * FROM utilisateurs");
 
 $_SESSION['bdd']->close();
 
+
+
+
+
+?>
+<h2>Gestion _Utilisateurs</h2>
+<table>
+<thead>
+    <tr>
+        <th>Rang</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Grade</th>
+        <th>Supprimer??</th>
+        
+    </tr>
+</thead>
+</table>
+<?php
+
+
 foreach($uti as $utili) 
 { 
      
 ?>
+
+
+<?php ?>
 <table>
-<thead>
-    <tr>
-        <th>id</th>
-        <th>login</th>
-        <th>email</th>
-        <th>id_droits</th>
-    </tr>
-</thead>
 <tbody>
     <tr>
     <td><?php echo $utili[0] ; ?> </td>
@@ -76,7 +92,7 @@ foreach($uti as $utili)
     </td>
     </tr>
 </tbody>
-</table> 
+</table> </br>
 <?php
 
 
@@ -95,37 +111,44 @@ $art=$_SESSION['bdd']->execute("SELECT * FROM articles");
 
 $_SESSION['bdd']->close();
 
+?></br></br>
+<h2>Gestion _Articles</h2>
+<table class= "ad">
+<thead>
+    <tr>
+        <th>Id.Rapport</th>
+        <th>Rang_utilisateur</th>
+        <th>Village</th>
+        <th>Rapports</th>
+        <th>Date</th>
+        <th>Supprimer??</th>
+        
+    </tr>
+</thead>
+
+</table>
+<?php
 foreach($art as $art3) 
 { 
      
 ?>
-<table>
-<thead>
-    <tr>
-        <th>id.article</th>
-        <th>id.utilisateur</th>
-        <th>id.categorie</th>
-        <th>article</th>
-        <th>date</th>
-        
-    </tr>
-</thead>
-<tbody>
+<table class= "adb">
+<tbody >
     <tr>
     <td><?php echo $art3[0] ; ?> </td>
     <td><?php echo $art3[2] ; ?> </td>
     <td><?php echo $art3[3] ; ?> </td>
     <td><?php echo $art3[1] ; ?> </td>
     <td><?php echo $art3[4] ; ?> </td>
-    <td></td>
+   
     <td>
     <form method="post" action="admin.php" id="suppr">
     <button type="submit" id="submit" name="art" value ="<?php echo $art3[2];?>">Supprimer</button>
     </form>
     </td>
     </tr>
-</tbody>
-  </table> </br> 
+</tbodY>
+  </table></br></br> 
   <?php
 
 //*suppression des articles
@@ -140,22 +163,33 @@ $_SESSION['bdd']->connect();
 $com=$_SESSION['bdd']->execute("SELECT * FROM commentaires");
 $_SESSION['bdd']->close();
 
+?></br></br></br>
+<h2>Gestion _Commentaires</h2>
+<table>
+<thead>
+     
+                                    				
+    <tr> 
+                                    				
+        <th>Id</th>
+        <th>Id_Rapport</th>
+        <th>Rang_utilisateur</th>
+        <th>Missive</th>
+        <th>Date</th>
+        <th>Supprimer??</th>
+        
+    </tr>
+        
+    </tr>
+</thead>
+
+</table>
+<?php
 foreach($com as $com3) 
 { 
      
 ?>
 <table>
-<thead>
-    <tr> 
-                                    				
-        <th>id</th>
-        <th>id_article</th>
-        <th>id_utilisateur</th>
-        <th>commentaire</th>
-        <th>date</th>
-        
-    </tr>
-</thead>
 <tbody>
     <tr>
     <td><?php echo $com3[0] ; ?> </td>
@@ -163,7 +197,7 @@ foreach($com as $com3)
     <td><?php echo $com3[3] ; ?> </td>
     <td><?php echo $com3[1] ; ?> </td>
     <td><?php echo $com3[4] ; ?> </td>
-    <td></td>
+    
     <td>
     <form method="post" action="admin.php" id="supprC">
     <button type="submit" id="submit" name="com" value ="<?php echo $com3[3];?>">Supprimer</button>

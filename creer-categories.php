@@ -38,7 +38,7 @@
 
 	<main>
 		<?php
-			if ($_SESSION['id_droits'] = 1337) 
+			if ($_SESSION['id_droits'] == 1337 OR $_SESSION['id_droits'] == 42) 
 			{
 				
 			

@@ -8,7 +8,7 @@ session_start();
 
 $connexion = mysqli_connect("localhost", "root", "", "blog");
 
-if (isset($_GET['id'])) 
+if (isset($_GET['id']) AND isset($_SESSION['login'])) 
 {
 	$requeteArticle = "SELECT * FROM articles WHERE id = '".$_GET['id']."'";
 	$queryArticle = mysqli_query($connexion, $requeteArticle);
@@ -41,14 +41,16 @@ if (isset($_GET['id']))
 </head>
 
 <div class="banniere">
-		<div class="logo">
-			<img src="img/logo.png">
-		</div>
+	<div class="logo">
+		<img src="img/logo.png">
 	</div>
+</div>
+
+	<?php require 'header.php';?>
+
 
 <body id="bodyArticle">
 
-	<?php require 'header.php';?>
 
 	<main id="mainArticle">
 		<?php

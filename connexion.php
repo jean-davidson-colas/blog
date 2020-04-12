@@ -30,7 +30,11 @@ session_start();
 </head>
 
 <body>
-
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 <?php require 'header.php'?>
 
 

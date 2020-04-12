@@ -15,14 +15,6 @@ $user = new user();
 if(!isset($_SESSION['id'])){
 header('Location:index.php');
 }
-$connexion = mysqli_connect('localhost','root','','blog');
-$requete1 = "SELECT * FROM utilisateurs WHERE id = '".$_SESSION['id']."' ";
-$query1 = mysqli_query($connexion, $requete1);
-$result1 = mysqli_fetch_assoc($query1);
-
-var_dump($_SESSION['id_droits']);
-var_dump($result1);
-
 
 
 
@@ -35,7 +27,12 @@ var_dump($result1);
         
 </head>
 
-<body>
+<body class = "profil">
+<div class="banniere">
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+	</div>
 
 <?php include 'header.php'?>
 
@@ -69,7 +66,8 @@ var_dump($result1);
                 
                     <input type="submit" name="envoyer">
                 <?php
-                if($_SESSION['id_droits'] = 1337)
+                
+                if($_SESSION['id_droits'] == 1337)
                 { ?>
                     <label> Rôle du membre : </label><br>
                     <select type="post" name="roleinput"><br>
@@ -141,9 +139,24 @@ if (isset($_FILES['avatar']) AND !empty($_FILES['avatar']))
 }
 
 ?>
-
-
-
+</br>
+<section><p></p>
+<iframe width=100% height="615" src="https://www.youtube.com/embed/FOfWwN8lp9s" 
+		frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+<section width=100% >
+<p>Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire.
+Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., 
+le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéress
+à un des mots latins les plus
+Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire.
+Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., 
+le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéress
+à un des mots latins les plusContrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire.
+Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., 
+le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéress
+à un des mots latins les plus</p>
+</section>
 </main>
 
 <?php require 'footer.php'?>

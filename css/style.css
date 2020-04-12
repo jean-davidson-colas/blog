@@ -1,20 +1,138 @@
+@font-face
+{
+    font-family: "Ma_Super_Fonte";
+    src: url("../polices/njnaruto") format('truetype');
+    
+}
+@font-face
+{
+    font-family: "Ma_Super_Fonte2";
+    src: url("../polices/Manga bold") format('OpenType');
+    
+}
+
+  
+
+
 html
 {
     margin:0;
     padding: 0;
+    
 }
 
 body
+{   
+    font-family: "Ma_Super_Fonte";
+    color: rgb(228, 88, 23);
+    /*color: rgb(6, 6, 56);*/
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+main
 {
+    padding-bottom: 10%;
+}
+.acc
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+}
+.acc ul
+{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 500px;font-size: 25px;
+    list-style-type:none ;
+}
+.acc p
+{
+    display: flex;
+    flex-direction:column;
+    
+    text-align: center;
+    font-size: 40px;
+    color: rgb(11, 11, 97);
+    text-shadow: 2px 2px rgb(184, 178, 178);
+    width: 25%;
+    height: 500px;
+   
+}
+
+.admin
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/test.png);
+    position: absolute;
+    background-size: cover;
+    width: 100%;
     margin:0;
     padding:0;
+    z-index: 0;
+}
+.profil
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/haku-jpg);
+    position: absolute;
+    background-size: cover;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
+}
+.modo
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/zabuza-jpg);
+    position: absolute;
+    background-size: cover;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
+}
+.ins
+{
+    font-family: "Ma_Super_Fonte";
+    background-image: url(../img/jiraiya-4.jpg);
+    position: absolute;
+    background-size: cover;
+    background-attachment: scroll;
+    color: rgb(6, 6, 56);
+    width: 100%;
+    margin:0;
+    padding:0;
+    z-index: 0;
 }
 
 h1
 {
+    font-family: "Ma_Super_Fonte",cursive;
     display: flex;
     font-size: 40px;
     justify-content: center;
+    text-shadow: 2px 2px whitesmoke;
+}
+
+h2
+{
+    font-family: "Ma_Super_Fonte",cursive;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    
 }
 
 button a
@@ -36,19 +154,19 @@ input[type="submit"]
 {
     cursor:pointer;
     font-family: "Bold";
-	
-	padding-bottom: 4px;
-	margin-top: 30px;
-	box-shadow: 0px 1px 10px grey;
-	background-color: #335BD4;
-	text-decoration: none;
-	width: 220px;
-	height: 50px;
-	text-align:center;
-	transition: all 0.2s ease;
-	color: white;
-	border-radius: 40px;
-	font-size: 18px;
+    
+    padding-bottom: 4px;
+    margin-top: 30px;
+    box-shadow: 0px 1px 10px grey;
+    background-color:rgb(228, 88, 23);
+    text-decoration: none;
+    width: 120px;
+    height: 30px;
+    text-align:center;
+    transition: all 0.2s ease;
+    color: white;
+    border-radius: 20px;
+    font-size: 10px;
 }
 
 
@@ -61,6 +179,7 @@ header
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 header nav
@@ -69,6 +188,7 @@ header nav
     height:8vh;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.308);
+    /*background-color: rgba(0, 0, 0, 0.308);*/
 }
 
 header ul
@@ -89,7 +209,9 @@ header li a
     font-size: 25px;
     color: #faf6f6;
     text-decoration: none;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Ma_Super_Fonte2";
+    font-size: 40px;
+
 }
 
 header li a:hover
@@ -99,6 +221,114 @@ header li a:hover
 }
 
 
+
+
+footer
+{
+    display: flex;
+    background-color: rgba(33,33,33,0.7);
+    width: 100%;
+    align-content: center;
+    align-items:center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    
+}
+audio{
+    width: 250px;
+    height: 30px;
+}
+
+
+
+.formulaire
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    max-width:25vw;
+    margin: auto;
+    padding:15px;
+    background-color: rgba(66, 51, 41, 0.829);
+}
+
+
+.formulaire label
+{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-items:center;
+    max-width: 20vw;
+    font-size: 15px;
+    text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
+}
+
+.formulaire input
+{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-items:center;
+    font-size: 15px;
+    max-width: 20vw;
+
+    color: rgb(22, 22, 22);
+    text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
+}
+table{
+    width: 100%;
+    
+    z-index: 1;
+    
+}
+
+.ad{
+    width: 100%;
+    z-index: 1;
+    
+}
+.adb
+{
+    width: 100%;
+    
+    
+    
+}
+.adb td
+{
+    width: 18%;
+    
+    
+}
+thead{
+    display: flex;
+    flex-direction:column;
+    align-items:space-between;
+    width: 100%;
+    height:45px;
+    font-size: 34px;
+    text-shadow: 4px 4px 12px rgba(221, 221, 215, 0.795);
+    border:  0.5px outset white;
+    
+}
+thead tr th
+{
+    width: 380px;
+    text-align: center;
+    color: rgb(6, 6, 56);
+    border: rgb(22, 22, 22);
+}
+td{
+    width: 15%;
+    text-align: center;
+    
+}
 
 .dropdown {
   position: relative;
@@ -129,60 +359,6 @@ header li a:hover
 
 
 
-footer
-{
-    display: flex;
-    background-color: rgba(33,33,33,0.7);
-    background-position: center;
-    background-size: cover;
-    height: 15vh;
-    align-content: center;
-    align-items:center;
-    justify-content: center;
-}
-
-
-
-.formulaire
-{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    max-width:25vw;
-    margin: auto;
-    padding:15px;
-    background-color: rgba(220,152,117,0.7);
-}
-
-.formulaire label
-{
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    align-content:center;
-    justify-items:center;
-    max-width: 20vw;
-    font-size: 15px;
-    text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
-}
-
-.formulaire input
-{
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    align-content:center;
-    justify-items:center;
-    font-size: 15px;
-    max-width: 20vw;
-
-    color: rgb(22, 22, 22);
-    text-shadow: 4px 4px 12px rgba(253, 255, 147, 0.795);
-}
-
-
 /*--------------------INDEX--------------------*/
 /*--------------------INDEX--------------------*/
 /*--------------------INDEX--------------------*/
@@ -205,6 +381,38 @@ footer
    
 }
 
+#articleIndex{
+    background-image: url(../img/narutoIndex.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(255, 255, 255, 0.5);
+    height: 800px;
+}
+
+#episode{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#infoNaruto{
+    border-style: solid;
+    border-collapse: collapse;
+
+}
+
+#infoNaruto th, tr, td{
+    color: black;
+    border-style: solid;
+    text-align: center;
+}
+
+#infoNaruto textarea {
+    resize: none;
+     font-family: "Ma_Super_Fonte2";
+}
+
+
 /*--------------------Creer Article--------------------*/
 /*--------------------Creer Article--------------------*/
 /*--------------------Creer Article--------------------*/
@@ -220,12 +428,14 @@ footer
     width: 50%;
     margin-top: 3%;
     margin-bottom: 3%;
+    font-family: "Ma_Super_Fonte2";
 
    
 }
 
 #creerArticle textarea{
     resize: none;
+     font-family: "Ma_Super_Fonte2";
 }
 
 
@@ -245,6 +455,7 @@ footer
     text-align: center;
     padding: 3%;
     border-style: dashed solid;
+     font-family: "Ma_Super_Fonte2";
 }
 
 
@@ -265,9 +476,10 @@ footer
 
 #allArticle{
     margin: 0 auto;
-    width: 50%; 
+    width: 50%;
     padding: 2%;
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0.5);
+     font-family: "Ma_Super_Fonte2";
     
 }
 
@@ -277,6 +489,9 @@ footer
     border-width: 4px;
     margin: 2%;
     padding: 2%;
+    background-color: rgb(0, 0, 0, 0.5);
+     font-family: "Ma_Super_Fonte2";
+    
 }
 
 /*--------------------ARTICLE--------------------*/
@@ -284,7 +499,6 @@ footer
 /*--------------------ARTICLE--------------------*/
 /*--------------------ARTICLE--------------------*/
 /*--------------------ARTICLE--------------------*/
-
 
 #bodyArticle{
     background-image: url("https://media.giphy.com/media/fxo6UEg4oXnHi/giphy.gif");
@@ -302,9 +516,9 @@ footer
     text-align: center;
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
-    height: 100px;
     margin-bottom: 2%;
     margin-top: 2%;
+    font-family: "Ma_Super_Fonte2";
 }
 
 #sectionCommentaire{
@@ -313,15 +527,17 @@ footer
    background-image: url(../img/sasuke.jpg);
    background-repeat: no-repeat;
    background-size: cover;
-   height: 1000px;
+   height: 800px;
    color: white;
    overflow: auto;
+    font-family: "Ma_Super_Fonte2";
 }
 
 #userCommentaire{
     border-style: solid none none none;
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
+     font-family: "Ma_Super_Fonte2";
 }
 
 #commentaire{
@@ -331,6 +547,7 @@ footer
     border-color: black;
     background-color: rgb(0, 0, 0, 0.5);
     color : white;
+     font-family: "Ma_Super_Fonte2";
 }
 
 #delete{
@@ -344,8 +561,10 @@ footer
 #newCommentaire{
     text-align: center;
     background-color: rgb(0, 0, 0, 0.5);
+     font-family: "Ma_Super_Fonte2";
 }
 
 #newCommentaire textarea{
     resize: none;
+     font-family: "Ma_Super_Fonte2";
 }
